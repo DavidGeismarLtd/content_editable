@@ -1,5 +1,5 @@
 module Editables
-  module EditableHelper
+  module Helper
     def editable_text_class
       'editable editable-text' if current_admin
     end
