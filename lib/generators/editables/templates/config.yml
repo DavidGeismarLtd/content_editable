@@ -1,0 +1,162 @@
+# this file is an example edit it as you wish
+pages:
+  home:
+    description: the root page of zedental
+    kind: static
+    fields:
+      hero_title:
+        kind: text
+        value: Un catalogue incisif de formations décisives pour votre carrière.
+      hero_subtitle:
+        kind: text
+        value: Masterclass, DPC, attestations universitaires, le meilleur pour votre parcours professionnel.
+      hero_background_image:
+        kind: background_image
+        value: /assets/home-hero.jpg
+      training_category_section_title:
+        kind: text
+        value: Nos formations
+      featured_trainings_section_title:
+        kind: text
+        value: Nos formations à la une
+      value_section_title:
+        kind: text
+        value: Nos valeurs
+      scientific_comity_image:
+        kind: image
+        value: /assets/card-image.jpg
+      scientific_comity_title:
+        kind: text
+        value: Comité scientifique
+      scientific_comity_description:
+        kind: text
+        value: Description du comité scientifique
+      value_1_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non dictum dui. Vivamus dictum purus in mollis pretium.
+      value_1_title:
+        kind: text
+        value: value 1
+      value_2_title:
+        kind: text
+        value: value 2
+      value_2_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non dictum dui. Vivamus dictum purus in mollis pretium.
+      value_3_title:
+        kind: text
+        value: value 3
+      value_3_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non dictum dui. Vivamus dictum purus in mollis pretium.
+      value_4_title:
+        kind: text
+        value: value 4
+      value_4_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non dictum dui. Vivamus dictum purus in mollis pretium
+  about:
+    description: page describing who we are
+    fields:
+      about_title:
+        kind: text
+        value: Qui sommes-nous ?
+      about_subtitle:
+        kind: text
+        value: Nous sommes
+      about_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      about_image:
+        kind: image
+        value: /assets/home-hero.jpg
+      values_title:
+        kind: text
+        value: Nos valeurs
+      value_1_title:
+        kind: text
+        value: Value 1
+      value_1_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      value_2_title:
+        kind: text
+        value: Value 2
+      value_2_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      value_3_title:
+        kind: text
+        value: Value 3
+      value_3_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      value_4_title:
+        kind: text
+        value: Value 4
+      value_4_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      story_section_title:
+        kind: text
+        value: Notre histoire
+      chapter_1_title:
+        kind: text
+        value: chapter 1
+      chapter_1_image:
+        kind: image
+        value: /assets/home-hero.jpg
+      chapter_1_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      chapter_2_title:
+        kind: text
+        value: Chapter 2
+      chapter_2_image:
+        kind: image
+        value: /assets/home-hero.jpg
+      chapter_2_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      training_categories_title:
+        kind: text
+        value: Les différentes catégories de formation
+  contact:
+    description: Contact pages
+    fields:
+      page_title:
+        kind: text
+        value: Contactez-nous
+      page_subtitle_1:
+        kind: text
+        value: Une équipe à votre écoute
+      page_description_1:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      socials_subtitle:
+        kind: text
+        value: Suivez-nous sur les réseaux sociaux
+      facebook_subtitle:
+        kind: text
+        value: Sur Facebook, trouvez ceci.
+      facebook_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      youtube_subtitle:
+        kind: text
+        value: Sur Youtube, trouvez ceci.
+      youtube_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      twitter_subtitle:
+        kind: text
+        value: Sur Youtube, trouvez ceci.
+      twitter_description:
+        kind: text
+        value: Lorem ipsum
+      contact_subtitle:
+        kind: text
+        value: Formulaire de contact
+      contact_description:
+        kind: text
+        value: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
