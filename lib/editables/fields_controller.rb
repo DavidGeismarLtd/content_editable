@@ -1,5 +1,5 @@
 module Editables
-  class FieldsController < ApplicationController
+  class FieldsController < ::ApplicationController
      protect_from_forgery unless: -> { request.format.json? }, only: [:update]
     def update
       respond_to do |format|

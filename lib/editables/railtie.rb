@@ -1,5 +1,8 @@
 class Editables::Railtie < Rails::Railtie
+  rake_tasks do
+    Dir[File.join(File.dirname(__FILE__),'../tasks/*.rake')].each { |f| load f }
+  end
   config.after_initialize do |app|
-    ActionView::Base.send :include, Editables::EditableHelper
+    ActionView::Base.send :include, Editables::Helper
   end
 end
