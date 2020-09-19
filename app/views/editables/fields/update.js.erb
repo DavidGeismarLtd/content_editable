@@ -1,0 +1,6 @@
+var target = document.querySelector('[data-editableroute="<%= field_path @field %>"]');
+<% if @field.is_image? %>
+  target.querySelector('img').src = "<%= cloudinary_path @field %>"
+<% elsif @field.is_background_image? %>
+  target.setAttribute("style", "background-image: url('<%= cloudinary_path @field  %>')")
+<% end %>

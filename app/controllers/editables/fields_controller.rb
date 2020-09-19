@@ -2,11 +2,14 @@ module Editables
   class FieldsController < ApplicationController
      protect_from_forgery unless: -> { request.format.json? }, only: [:update]
     def update
+      puts("in engine's controller")
       respond_to do |format|
         @field = Editables::Field.find(params[:id])
         if @field.update(editable_fields_params)
+          # this should be changed
           if @field.image?
-              format.js
+            puts("in fields.image")
+            format.js
           else
             format.json { render json: {}, status: 200 }
           end
