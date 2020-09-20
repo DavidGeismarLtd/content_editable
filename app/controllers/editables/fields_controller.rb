@@ -1,3 +1,5 @@
+require_dependency "editables/application_controller"
+
 module Editables
   class FieldsController < ApplicationController
      protect_from_forgery unless: -> { request.format.json? }, only: [:update]
