@@ -21,6 +21,9 @@ Or install it yourself as:
 $ gem install editables
 ```
 
+rails editables:install:migrations to run the engine's migration
+bundle exec rake editables:create_from_config to create editable objects from your config file
+
 ## Contributing
 Contribution directions go here.
 
