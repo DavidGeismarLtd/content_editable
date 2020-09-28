@@ -1,0 +1,449 @@
+  [1m[35m (0.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "dummy_test"[0m
+  [1m[35m (168.1ms)[0m  [1m[35mCREATE DATABASE "dummy_test" ENCODING = 'utf8'[0m
+  [1m[35m (25.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "dummy_test"[0m
+  [1m[35m (48.5ms)[0m  [1m[35mCREATE DATABASE "dummy_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "editable_fields" CASCADE[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "editable_fields" ("id" bigserial primary key, "label" character varying, "kind" character varying, "value" text, "editable_page_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_editable_fields_on_editable_page_id" ON "editable_fields"  ("editable_page_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "editable_pages" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "editable_pages" ("id" bigserial primary key, "name" character varying, "description" text, "kind" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "editable_fields" ADD CONSTRAINT "fk_rails_6bb71fb202"
+FOREIGN KEY ("editable_page_id")
+  REFERENCES "editable_pages" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200920082203)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200919073703);
+
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-09-24 16:03:48.877320"], ["updated_at", "2020-09-24 16:03:48.877320"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "bf36756495dccd07950389ad6291bf9e710c758f"], ["created_at", "2020-09-24 16:03:48.881258"], ["updated_at", "2020-09-24 16:03:48.881258"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE DATABASE "dummy_test" ENCODING = 'utf8'[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2735718569030447490)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2735718569030447490)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (6.0ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "embrace dynamic convergence"], ["description", "cultivate wireless ROI"], ["kind", "transition cross-platform e-commerce"], ["created_at", "2020-09-27 12:48:11.504183"], ["updated_at", "2020-09-27 12:48:11.504183"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 1], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (2.6ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "utilize plug-and-play eyeballs"], ["editable_page_id", 1], ["created_at", "2020-09-27 12:48:11.521507"], ["updated_at", "2020-09-27 12:48:11.521507"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "deploy web-enabled e-markets"], ["description", "enhance vertical content"], ["kind", "monetize user-centric markets"], ["created_at", "2020-09-27 12:48:11.525925"], ["updated_at", "2020-09-27 12:48:11.525925"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 2], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "grow magnetic functionalities"], ["editable_page_id", 2], ["created_at", "2020-09-27 12:48:11.528059"], ["updated_at", "2020-09-27 12:48:11.528059"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.3ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "whiteboard value-added convergence"], ["description", "e-enable leading-edge mindshare"], ["kind", "utilize granular interfaces"], ["created_at", "2020-09-27 12:49:06.801346"], ["updated_at", "2020-09-27 12:49:06.801346"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 3], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.3ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "incentivize virtual functionalities"], ["editable_page_id", 3], ["created_at", "2020-09-27 12:49:06.806996"], ["updated_at", "2020-09-27 12:49:06.806996"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.1ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "redefine cross-media schemas"], ["description", "facilitate collaborative users"], ["kind", "visualize 24/7 niches"], ["created_at", "2020-09-27 12:49:06.808481"], ["updated_at", "2020-09-27 12:49:06.808481"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 4], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.4ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "harness world-class synergies"], ["editable_page_id", 4], ["created_at", "2020-09-27 12:49:06.810068"], ["updated_at", "2020-09-27 12:49:06.810068"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" WHERE "editable_fields"."label" = $1 LIMIT $2[0m  [["label", "field_with_text"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.3ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "transform next-generation mindshare"], ["description", "orchestrate dot-com systems"], ["kind", "enhance intuitive ROI"], ["created_at", "2020-09-27 12:50:41.528635"], ["updated_at", "2020-09-27 12:50:41.528635"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 5], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.4ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "matrix visionary infomediaries"], ["editable_page_id", 5], ["created_at", "2020-09-27 12:50:41.534925"], ["updated_at", "2020-09-27 12:50:41.534925"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.1ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "unleash transparent applications"], ["description", "engage end-to-end paradigms"], ["kind", "disintermediate integrated bandwidth"], ["created_at", "2020-09-27 12:50:41.536787"], ["updated_at", "2020-09-27 12:50:41.536787"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 6], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "transition scalable schemas"], ["editable_page_id", 6], ["created_at", "2020-09-27 12:50:41.538614"], ["updated_at", "2020-09-27 12:50:41.538614"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" WHERE "editable_fields"."label" = $1 LIMIT $2[0m  [["label", "field_with_text"], ["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.3ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "brand turn-key mindshare"], ["description", "streamline cross-media solutions"], ["kind", "streamline cross-media applications"], ["created_at", "2020-09-27 12:51:49.789546"], ["updated_at", "2020-09-27 12:51:49.789546"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 7], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (1.3ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "monetize web-enabled functionalities"], ["editable_page_id", 7], ["created_at", "2020-09-27 12:51:49.795814"], ["updated_at", "2020-09-27 12:51:49.795814"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "strategize front-end systems"], ["description", "innovate visionary vortals"], ["kind", "morph transparent portals"], ["created_at", "2020-09-27 12:51:49.799101"], ["updated_at", "2020-09-27 12:51:49.799101"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 8], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "orchestrate proactive channels"], ["editable_page_id", 8], ["created_at", "2020-09-27 12:51:49.801100"], ["updated_at", "2020-09-27 12:51:49.801100"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" WHERE "editable_fields"."label" = $1 LIMIT $2[0m  [["label", "field_with_text"], ["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.3ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "incentivize robust functionalities"], ["description", "productize vertical interfaces"], ["kind", "empower sticky paradigms"], ["created_at", "2020-09-27 12:52:45.233498"], ["updated_at", "2020-09-27 12:52:45.233498"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 9], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.5ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "engage scalable portals"], ["editable_page_id", 9], ["created_at", "2020-09-27 12:52:45.238881"], ["updated_at", "2020-09-27 12:52:45.238881"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.1ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "exploit visionary users"], ["description", "morph end-to-end convergence"], ["kind", "deliver 24/365 e-business"], ["created_at", "2020-09-27 12:52:45.240654"], ["updated_at", "2020-09-27 12:52:45.240654"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 10], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "whiteboard ubiquitous portals"], ["editable_page_id", 10], ["created_at", "2020-09-27 12:52:45.242373"], ["updated_at", "2020-09-27 12:52:45.242373"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" WHERE "editable_fields"."label" = $1 LIMIT $2[0m  [["label", "field_with_text"], ["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.3ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "monetize global users"], ["description", "productize cross-media communities"], ["kind", "orchestrate plug-and-play networks"], ["created_at", "2020-09-27 12:53:51.685506"], ["updated_at", "2020-09-27 12:53:51.685506"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 11], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.4ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "envisioneer innovative e-commerce"], ["editable_page_id", 11], ["created_at", "2020-09-27 12:53:51.693702"], ["updated_at", "2020-09-27 12:53:51.693702"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "strategize B2C models"], ["description", "redefine extensible methodologies"], ["kind", "implement end-to-end relationships"], ["created_at", "2020-09-27 12:53:51.695646"], ["updated_at", "2020-09-27 12:53:51.695646"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 12], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "orchestrate sexy experiences"], ["editable_page_id", 12], ["created_at", "2020-09-27 12:53:51.697621"], ["updated_at", "2020-09-27 12:53:51.697621"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" WHERE "editable_fields"."label" = $1 LIMIT $2[0m  [["label", "field_with_text"], ["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "editable_pages" DISABLE TRIGGER ALL;ALTER TABLE "editable_fields" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (12.6ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND tablename <> 'ar_internal_metadata'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (4.0ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'dummy_test'[0m
+  [1m[35m (7.0ms)[0m  [1m[35mTRUNCATE TABLE "public"."editable_pages", "public"."editable_fields" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "editable_pages" ENABLE TRIGGER ALL;ALTER TABLE "editable_fields" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.5ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "syndicate revolutionary solutions"], ["description", "implement clicks-and-mortar e-business"], ["kind", "matrix real-time niches"], ["created_at", "2020-09-28 20:16:08.115633"], ["updated_at", "2020-09-28 20:16:08.115633"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_text"], ["editable_page_id", 1], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.5ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_text"], ["kind", "text"], ["value", "streamline enterprise interfaces"], ["editable_page_id", 1], ["created_at", "2020-09-28 20:16:08.125299"], ["updated_at", "2020-09-28 20:16:08.125299"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Page Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_pages" ("name", "description", "kind", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "recontextualize frictionless paradigms"], ["description", "seize bricks-and-clicks schemas"], ["kind", "embrace user-centric users"], ["created_at", "2020-09-28 20:16:08.128068"], ["updated_at", "2020-09-28 20:16:08.128068"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEditables::Field Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "editable_fields" WHERE "editable_fields"."label" = $1 AND "editable_fields"."editable_page_id" = $2 LIMIT $3[0m  [["label", "field_with_image"], ["editable_page_id", 2], ["LIMIT", 1]]
+  [1m[36mEditables::Field Create (0.2ms)[0m  [1m[32mINSERT INTO "editable_fields" ("label", "kind", "value", "editable_page_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["label", "field_with_image"], ["kind", "image"], ["value", "reinvent next-generation bandwidth"], ["editable_page_id", 2], ["created_at", "2020-09-28 20:16:08.130197"], ["updated_at", "2020-09-28 20:16:08.130197"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" WHERE "editable_fields"."label" = $1 LIMIT $2[0m  [["label", "field_with_text"], ["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEditables::Field Load (0.2ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields" ORDER BY "editable_fields"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEditables::Field Load (0.1ms)[0m  [1m[34mSELECT "editable_fields".* FROM "editable_fields"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

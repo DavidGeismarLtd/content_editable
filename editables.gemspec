@@ -28,4 +28,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.2"
 
   spec.add_development_dependency "pg"
+
+  spec.add_development_dependency "rspec-rails"
+
+  spec.add_development_dependency "factory_bot_rails"
+
+  spec.add_development_dependency 'faker'
+
+  spec.test_files = Dir["spec/**/*"]
+
 end

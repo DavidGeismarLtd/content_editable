@@ -4,7 +4,7 @@ class CreateEditableFields < ActiveRecord::Migration[6.0]
       t.string :label
       t.string :kind
       t.text :value
-      t.references :page, foreign_key: true
+      t.references :editable_page, foreign_key: true
       t.timestamps
     end
   end
