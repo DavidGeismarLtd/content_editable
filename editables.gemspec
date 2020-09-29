@@ -6,7 +6,7 @@ require "editables/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "c-editables"
+  spec.name        = "editables"
   spec.version     = Editables::VERSION
   spec.authors     = ["david geismar"]
   spec.email       = ["dageismar@gmail.com"]
