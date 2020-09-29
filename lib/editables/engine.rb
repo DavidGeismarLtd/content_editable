@@ -6,15 +6,14 @@ module Editables
       g.fixture_replacement :factory_bot
       g.factory_bot dir: 'spec/factories'
     end
+
     config.before_initialize do
+      Rails.autoloaders.main.ignore(Rail.root + "app/override")
       ActiveSupport.on_load(:action_view) do
          include ApplicationHelper
       end
     end
     config.after_initialize do
-      puts "---------------------------------------------------------------"
-        puts Dir.glob(Rails.root + "app/overrides/**/*_override*.rb")
-      puts "---------------------------------------------------------------"
       Dir.glob(Rails.root + "app/overrides/**/*_override*.rb").each do |c|
         require_dependency(c)
       end
