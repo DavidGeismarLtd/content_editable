@@ -12,7 +12,7 @@ module Editables
       end
     end
     config.after_initialize do
-      Dir.glob(Rails.root + "app/overrides/**/*_override*.rb").each do |c|
+      Dir.glob(Rails.root + "overrides/**/*_override*.rb").each do |c|
         require_dependency(c)
       end
     end
