@@ -8,6 +8,7 @@ module Editables
     end
 
     config.before_initialize do
+      # https://github.com/rails/rails/issues/38935
       Rails.autoloaders.main.ignore(Rail.root + "app/override")
       ActiveSupport.on_load(:action_view) do
          include ApplicationHelper
