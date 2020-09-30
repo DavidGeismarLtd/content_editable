@@ -1,5 +1,5 @@
 module Editables
   class Field < ApplicationRecord
-    include Editables::Concerns::Models::Field
+    include Editables::Concerns::Field
   end
 end

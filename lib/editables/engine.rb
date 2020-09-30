@@ -6,6 +6,12 @@ module Editables
       g.fixture_replacement :factory_bot
       g.factory_bot dir: 'spec/factories'
     end
+
+    config.before_initialize do
+      ActiveSupport.on_load(:action_view) do
+         include ApplicationHelper
+      end
+    end
     # config.before_initialize do
     #   # https://github.com/rails/rails/issues/38935
     #   Rails.autoloaders.main.ignore(Rails.root + "app/override")

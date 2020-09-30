@@ -1,7 +1,7 @@
 
 # Blorgh/lib/concerns/models/article.rb
 
-module Editables::Concerns::Models::Field
+module Editables::Concerns::Field
   extend ActiveSupport::Concern
   included do
     self.table_name = "editable_fields"
